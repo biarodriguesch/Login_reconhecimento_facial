@@ -10,7 +10,7 @@ class Interface:
     def __init__(page):
         page.top = tk.Tk()
 
-        page._bgcolor = '#339933'  # background texto,verde
+        page._bgcolor = '#339933' # background texto,verde
         page._fgcolor = '#000000'  # cor do texto, preto
         page._compcolor = '#d9d9d9' # borta do botao 
         page._ana2color = '#d9d9d9' # sombra do click do botão, verde
@@ -112,21 +112,21 @@ class Interface:
             page.TNotebook1_t1 = tk.Frame(page.TNotebook1)
             page.TNotebook1.add(page.TNotebook1_t1, padding = 5)
             page.TNotebook1.tab(0, text = "Funcionários", compound = "left", underline = "-1",)
-            page.TNotebook1_t1.configure(background="#d9d9d9")
+            page.TNotebook1_t1.configure(background="#339933")
             page.TNotebook1_t1.configure(highlightbackground="#d9d9d9")
             page.TNotebook1_t1.configure(highlightcolor="black")
         if num >= 2:
             page.TNotebook1_t2 = tk.Frame(page.TNotebook1)
             page.TNotebook1.add(page.TNotebook1_t2, padding=5)
             page.TNotebook1.tab(1, text="Diretores",compound="left",underline="-1",)
-            page.TNotebook1_t2.configure(background="#d9d9d9")
+            page.TNotebook1_t2.configure(background="#339933")
             page.TNotebook1_t2.configure(highlightbackground="#d9d9d9")
             page.TNotebook1_t2.configure(highlightcolor="black")
         if num >= 3:
             page.TNotebook1_t3 = tk.Frame(page.TNotebook1)
             page.TNotebook1.add(page.TNotebook1_t3, padding = 5)
             page.TNotebook1.tab(2, text = "CEO", compound = "left", underline = "-1",)
-            page.TNotebook1_t3.configure(background = "#d9d9d9")
+            page.TNotebook1_t3.configure(background = "#339933")
             page.TNotebook1_t3.configure(highlightbackground = "#d9d9d9")
             page.TNotebook1_t3.configure(highlightcolor = "black")
 
@@ -233,10 +233,10 @@ class Interface:
         page.cargo_selecionado = IntVar()
         page.cargo_selecionado.set(1)
 
-        page.opc_generico = ttk.Radiobutton(page.frame_registro, variable = page.cargo_selecionado, value = 1)
-        page.opc_generico.place(relx=0.265, rely=0.115, relwidth=0.170, relheight=0.0, height=30)
-        page.opc_generico.configure(text='''Funcionário(a)''')
-        page.opc_generico.configure(cursor="hand2")
+        page.opc_funcionario = ttk.Radiobutton(page.frame_registro, variable = page.cargo_selecionado, value = 1)
+        page.opc_funcionario.place(relx=0.265, rely=0.115, relwidth=0.170, relheight=0.0, height=30)
+        page.opc_funcionario.configure(text='''Funcionário(a)''')
+        page.opc_funcionario.configure(cursor="hand2")
 
         page.opc_diretor = ttk.Radiobutton(page.frame_registro, variable = page.cargo_selecionado, value = 2)
         page.opc_diretor.place(relx=0.460, rely=0.115, relwidth=0.140, relheight=0.0, height=30)
