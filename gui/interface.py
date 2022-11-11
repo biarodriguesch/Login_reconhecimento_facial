@@ -42,11 +42,11 @@ class Interface:
 
         self.texto_bemvindo = ttk.Label(self.top)
         self.texto_bemvindo.place(relx=0.325, rely=0.12, height=49, width=205)
-        self.texto_bemvindo.configure(font="-family {Yu Mincho Demibold} -size 24 -weight bold " "-underline 1")
+        self.texto_bemvindo.configure(font="-family {Yu Mincho Demibold} -size 24 -weight bold ")
         self.texto_bemvindo.configure(relief="flat")
         self.texto_bemvindo.configure(anchor='w')
         self.texto_bemvindo.configure(justify='center')
-        self.texto_bemvindo.configure(text='''Bém-vindo(a)''')
+        self.texto_bemvindo.configure(text='''Bem vindo(a)''')
         self.texto_bemvindo.configure(compound='top')
 
         self.texto_msg_inicio = ttk.Label(self.top)
