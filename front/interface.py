@@ -60,24 +60,23 @@ class Interface:
         page.botao_login.place(relx=0.252, rely=0.877, height=35, width=86)
         page.botao_login.configure(cursor="hand2")
         button1_ttp = CriarToolTip(page.botao_login, \
-            "Clique para fazer login caso você já esteja registrado.")
+            "Clique para fazer login.")
 
         page.botao_registrar = ttk.Button(page.top, text = "Registrar", command = page._botao_registrar_clicado)
         page.botao_registrar.place(relx=0.426, rely=0.877, height=35, width=96)
         page.botao_registrar.configure(cursor="hand2")
         button2_ttp = CriarToolTip(page.botao_registrar, \
-            "Clique para se registrar caso não possua registro, antes de poder fazer login.")
+            "Clique para se registrar")
 
         page.botao_sair = ttk.Button(page.top, text = "Sair", command = page._botao_sair_clicado)
         page.botao_sair.place(relx=0.615, rely=0.877, height=35, width=86)
         page.botao_sair.configure(cursor="hand2")
         button3_ttp = CriarToolTip(page.botao_sair, \
-            "Clique para sair e encerrar o programa.")
+            "Clique para sair.")
 
         page.top.mainloop()
     
     def _tela_de_aviso(page, msg):
-        """Exibe uma tela de aviso, com uma mensagem, em cima do resto do programa."""
         page.frame_tela_aviso = ttk.Frame(page.top)
         page.frame_tela_aviso.place(relx=0.014, rely=0.017, relheight=0.96, relwidth=0.97)
         page.frame_tela_aviso.configure(relief='groove')
@@ -99,7 +98,6 @@ class Interface:
         page.botao_ok.place(relx=0.400, rely=0.870, height=35, width=116)
 
     def _exibir_dados_confidenciais(page, nome, num):
-        """Exibe os dados baseado no cargo que dada pessoa registrada tem."""
         page.style.configure('TNotebook.Tab', background = page._bgcolor)
         page.style.configure('TNotebook.Tab', foreground = page._fgcolor)
         page.style.map('TNotebook.Tab', background = [('selected', page._compcolor), ('active', page._ana2color)])
@@ -109,26 +107,33 @@ class Interface:
         page.TNotebook1.configure(takefocus="")
 
         if num >= 1:
-            page.TNotebook1_t1 = tk.Frame(page.TNotebook1)
+            win_width, win_height = 500, 200
+            page.TNotebook1_t1 = tk.Label(page.TNotebook1)
             page.TNotebook1.add(page.TNotebook1_t1, padding = 5)
-            page.TNotebook1.tab(0, text = "Funcionários", compound = "left", underline = "-1",)
+            page.TNotebook1.tab(0, text = "Dados funciónario", compound = "left", underline = "-1",)
             page.TNotebook1_t1.configure(background="#339933")
             page.TNotebook1_t1.configure(highlightbackground="#d9d9d9")
             page.TNotebook1_t1.configure(highlightcolor="black")
+            page.TNotebook1_t1.configure(pady=20, wraplength=win_width, text='Brasil na #COP27 - A Amazônia é o maior bioma do Brasil, com uma área equivalente à da União Europeia. Com ações integradas entre órgãos ambientais e de segurança pública, o Brasil trabalha para proteger um dos seus maiores tesouros: a Amazônia!')
+            
         if num >= 2:
-            page.TNotebook1_t2 = tk.Frame(page.TNotebook1)
+            win_width, win_height = 500, 200
+            page.TNotebook1_t2 = tk.Label(page.TNotebook1)
             page.TNotebook1.add(page.TNotebook1_t2, padding=5)
-            page.TNotebook1.tab(1, text="Diretores",compound="left",underline="-1",)
+            page.TNotebook1.tab(1, text="Dados Diretores",compound="left",underline="-1",)
             page.TNotebook1_t2.configure(background="#339933")
             page.TNotebook1_t2.configure(highlightbackground="#d9d9d9")
-            page.TNotebook1_t2.configure(highlightcolor="black")
+            page.TNotebook1_t2.configure(highlightcolor="black") 
+            page.TNotebook1_t1.configure(pady=20, wraplength=win_width, text='O CONSELHO NACIONAL DO MEIO AMBIENTE, no uso de suas atribuições e competências que lhe são conferidas pela Lei nº 6.938, de 31 de agosto de 1981, regulamentada pelo Decreto nº 99.274, de 6 de junho e 1990, e tendo em vista odisposto no seu artigo 13 do seu Regimento Interno, anexo à Portaria MMA nº 452, e 17de novembro de 2011, eConsiderando que a Constituição Federal do Brasil determina, em seu Artigo 225')
         if num >= 3:
-            page.TNotebook1_t3 = tk.Frame(page.TNotebook1)
+            win_width, win_height = 500, 200
+            page.TNotebook1_t3 = tk.Label(page.TNotebook1)
             page.TNotebook1.add(page.TNotebook1_t3, padding = 5)
-            page.TNotebook1.tab(2, text = "CEO", compound = "left", underline = "-1",)
+            page.TNotebook1.tab(2, text = "Dados Ministro", compound = "left", underline = "-1",)
             page.TNotebook1_t3.configure(background = "#339933")
             page.TNotebook1_t3.configure(highlightbackground = "#d9d9d9")
             page.TNotebook1_t3.configure(highlightcolor = "black")
+            page.TNotebook1_t1.configure(pady=20, wraplength=win_width, text='Os bancos públicos brasileiros são peças-chaves para impulsionar o financiamento de projetos sustentáveis para reduzir os efeitos da emissão de gases de efeito estufa. A participação dessas instituições no processo de transição para uma economia verde foi debatida na #COP27')
 
         page.label_cargo = tk.Label(page.frame_login)
         page.label_cargo.place(relx = 0.010, rely = 0, height = 31, width = 500)
@@ -138,15 +143,14 @@ class Interface:
         page.label_cargo.configure(font = page.font9)
         page.label_cargo.configure(foreground = "#000000")
 
-        if num == 0:
+        if num == 1:
             page.label_cargo.configure(text=f"Seja bem-vindo(a), {nome}.")
-        elif num == 1:
-            page.label_cargo.configure(text=f"Seja bem-vindo(a), diretor(a) {nome}.")
         elif num == 2:
+            page.label_cargo.configure(text=f"Seja bem-vindo(a), diretor(a) {nome}.")
+        elif num == 3:
             page.label_cargo.configure(text=f"Seja bem-vindo(a), ministro(a) {nome}.")
 
     def _criar_interface_login(page):
-        """Chamado caso haja alguém registrado, para iniciar o login de alguém."""
         page.frame_login = ttk.Frame(page.top)
         page.frame_login.place(relx=0.014, rely=0.017, relheight=0.96, relwidth=0.97)
         page.frame_login.configure(relief='groove')
@@ -190,7 +194,7 @@ class Interface:
     def _criar_frame_webcam(page):
         if page.frame_feed_webcam.winfo_exists():
             page.webcam_frame = tk.Label(page.frame_feed_webcam)
-            page.webcam_frame.pack() # Tem que dar 'pack()' aqui, senão não aparece o label na GUI.
+            page.webcam_frame.pack()
 
     def _botao_registrar_clicado(page):
         """Chamado pelo botão 'Registrar' na tela principal do programa."""
@@ -229,7 +233,6 @@ class Interface:
 
         page.style.map('TRadiobutton',background=[('selected', page._bgcolor), ('active', page._ana2color)])
 
-        # Faz a opção 'opc_diretor' ser o valor default; 'page.cargo_selecionado' guarda qual radiobutton foi selecionado, via os valores deles.
         page.cargo_selecionado = IntVar()
         page.cargo_selecionado.set(1)
 
@@ -275,15 +278,12 @@ class Interface:
         page._webcam_durante_registro()
 
     def _botao_tirar_foto_clicado(page):
-        """Chamado pelo botão 'Tirar foto', dentro da interface de registro de novo usuário."""
         page.continuar_mostrando_webcam = False
         page.botao_confirmar_registro.lift()
 
     def _botao_confirmar_registro_clicado(page):
-        """Chamado pelo botão 'Confirmar', dentro da interface de registro de novo usuário."""
         nome = page.texto_nome.get()
         page._salvar_database(nome, page.cargo_selecionado.get()) if nome != "" else page._tela_de_aviso("Você não inseriu um nome.")
 
     def _botao_sair_clicado(page):
-        """Chamado pelo botão 'Sair' na tela principal do programa."""
         sys.exit(0)

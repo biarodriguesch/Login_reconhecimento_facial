@@ -2,8 +2,8 @@ import tkinter as tk
 
 class CriarToolTip(object):
     def __init__(page, widget, text='widget info'):
-        page.tempo_espera = 500     # ms
-        page.wraplength = 180       # pixels
+        page.tempo_espera = 500    
+        page.wraplength = 180       
         page.widget = widget
         page.text = text
         page.widget.bind("<Enter>", page.entrar)
